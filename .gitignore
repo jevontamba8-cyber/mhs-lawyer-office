@@ -1,0 +1,7 @@
+# Exclude PDF files as requested by user
+*.pdf
+COMPANY PROFILE MHS REKAN.pdf
+
+# OS temporary files
+.DS_Store
+Thumbs.db
