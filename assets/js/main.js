@@ -288,7 +288,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `Terima kasih.`
       );
 
-      window.location.href = `mailto:mhs.rekan@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:tim.advokat.mhs@gmail.com?subject=${subject}&body=${body}`;
     });
 
     // Send via WhatsApp Direct
