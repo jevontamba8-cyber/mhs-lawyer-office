@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://jevontamba8-cyber.github.io/mhs-lawyer-office/sitemap.xml
+Sitemap: sitemap.xml
