@@ -6,20 +6,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
-     1. Mobile Drawer Navigation Toggle
+     1. Mobile Drawer Navigation Toggle (with Accessibility support)
      -------------------------------------------------------------------------- */
   const mobileToggle = document.querySelector('.mobile-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
 
   if (mobileToggle && mobileNav) {
     mobileToggle.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
+      const isOpen = mobileNav.classList.toggle('open');
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
     // Close mobile nav on link click
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       role: "Ahli Hukum Perdata & Mediator",
       credentials: "Certified Mediator (C.Med) · Magister Hukum",
       bio: "Mediator bersertifikat yang mengedepankan penyelesaian sengketa perdata melalui jalur negosiasi dan mediasi non-litigasi berorientasi win-win solution.",
-      expertise: ["Mediasi & Arbitrase Sengketa", "Hukum Perdata Umum", "Konsultasi Hukum Preventif"]
+      expertise: ["Mediation & Arbitrase Sengketa", "Hukum Perdata Umum", "Konsultasi Hukum Preventif"]
     },
     8: {
       name: "9. Daniel Hutabarat, S.H., M.H.",
@@ -198,11 +200,30 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     5. Interactive Q&A & Consultation Form (WhatsApp & Email Direct)
+     5. Interactive Q&A & Consultation Form with Lead Client Logging
      -------------------------------------------------------------------------- */
   const qaForm = document.getElementById('qa-form');
   const btnWaSend = document.getElementById('btn-wa-send');
   const btnEmailSend = document.getElementById('btn-email-send');
+
+  function saveConsultationLead(data, channel) {
+    try {
+      const leads = JSON.parse(localStorage.getItem('mhs_consultation_leads') || '[]');
+      leads.push({
+        ...data,
+        channel: channel,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('mhs_consultation_leads', JSON.stringify(leads));
+    } catch (e) {
+      console.warn('Lead logging error:', e);
+    }
+  }
+
+  // Global helper for firm administrators to view saved client consultation leads
+  window.getMhsLeads = function() {
+    return JSON.parse(localStorage.getItem('mhs_consultation_leads') || '[]');
+  };
 
   if (qaForm) {
     function getFormData() {
@@ -226,6 +247,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = getFormData();
         if (!data) return;
 
+        // Log consultation lead locally before redirecting
+        saveConsultationLead(data, 'WhatsApp');
+
         const targetPhone = data.office === 'citraraya' ? '6281314152403' : '6281388370695';
         const msg = `*KONSULTASI HUKUM DIRECT - MHS & REKAN*\n\n` +
           `*Nama:* ${data.name}\n` +
@@ -244,6 +268,9 @@ document.addEventListener('DOMContentLoaded', () => {
       btnEmailSend.addEventListener('click', () => {
         const data = getFormData();
         if (!data) return;
+
+        // Log consultation lead locally before redirecting
+        saveConsultationLead(data, 'Email');
 
         const targetEmail = 'tim.advokat.mhs@gmail.com';
         const subject = `[Konsultasi Hukum Direct] ${data.category} - ${data.name}`;
