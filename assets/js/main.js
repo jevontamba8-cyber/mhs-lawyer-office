@@ -56,78 +56,85 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-     3. Team Member Data & Modal Handler
+     3. Team Member Data (LENGKAP 11 ANGGOTA DARI PDF) & Modal Handler
      -------------------------------------------------------------------------- */
   const teamData = {
     1: {
-      name: "Manganju Hamonangan Simanullang, S.H., M.H., C.L.A.",
+      name: "1. Manganju Hamonangan Simanullang, S.H., M.H., C.L.A.",
       role: "Founder & Managing Partner",
       credentials: "Cum Laude UKI · PERADI · Certified Law Auditor (Jimly School)",
       bio: "Manganju H. Simanullang, S.H., M.H., C.L.A. merupakan pendiri Law Firm MHS & Rekan (berdiri 3 September 2009). Memiliki pengalaman profesional lebih dari 5 tahun di kantor notaris terkemuka di Kelapa Gading Jakarta Utara, serta Magister Hukum UKI predikat Cum Laude. Beliau saat ini menjabat Sekretaris Bidang Keanggotaan DPN PERADI.",
       expertise: ["Pendirian PT & Aspek Legalitas Korporasi", "Sengketa Pertanahan & Agraria (Spesialis)", "Gugatan Perdata Wanprestasi & PMH", "Audit Hukum Korporasi & Properti (C.L.A)", "Perkara Kepailitan & Kurator", "Tindak Pidana Khusus (Tipikor & Narkotika)"]
     },
     2: {
-      name: "Hombar Sinambela, S.H.",
+      name: "2. Hombar Sinambela, S.H.",
       role: "Advocate & Industrial Relations Specialist",
       credentials: "Anggota KAI · Pengadilan Tinggi Bandung",
       bio: "Memiliki pengalaman lebih dari 10 tahun sebagai aktivis serikat pekerja dan 5 tahun sebagai HRD perusahaan asing. Sangat berpengalaman dalam penanganan perkara Pemutusan Hubungan Kerja (PHK), perselisihan hubungan industrial, restrukturisasi ketenagakerjaan, serta negosiasi kolektif.",
       expertise: ["Hukum Ketenagakerjaan & PHI", "Penyelesaian Perselisihan PHK", "Efisiensi & Restrukturisasi Tenaga Kerja", "Perjanjian Kerja Bersama (PKB)"]
     },
     3: {
-      name: "Jimmy Hutasoit, S.H., M.H.",
-      role: "Advocate & Legal Consultant",
+      name: "3. Jimmy Hutasoit, S.H., M.H.",
+      role: "Advocate & Corporate Specialist",
       credentials: "Advokat PERADI · Magister Hukum",
       bio: "Advokat berpengalaman dalam mengurus legalitas dan perizinan perusahaan (SIUP, NIB, Akuisisi) serta menangani sengketa pidana umum dan perkara perdata komersial.",
       expertise: ["Perizinan & Legalitas PT/CV", "Hukum Pidana Umum & Perdata", "Hukum Bisnis & Perjanjian"]
     },
     4: {
-      name: "Irakata Fransius Simanullang, S.H.",
+      name: "4. Irakata Fransius Simanullang, S.H.",
       role: "Advocate & Legal Consultant",
       credentials: "Alumni UKI Jakarta · Advokat MHS & Rekan",
       bio: "Lulusan Ilmu Hukum Universitas Kristen Indonesia. Mengawali karir di Lembaga Bantuan Hukum UKI dan bergabung di MHS & Rekan sejak 2018. Memiliki spesialisasi dalam hukum pertanahan, perdata materiil/formil, dan pidana.",
       expertise: ["Hukum Pertanahan & Sengketa Lahan", "Hukum Perdata Materiil & Formil", "Pendampingan Pidana"]
     },
     5: {
-      name: "Hongkop Simanullang, S.H., M.H.",
+      name: "6. Hongkop Simanullang, S.H., M.H.",
       role: "Advocate, Legal Consultant & Dosen",
       credentials: "Advokat Senior · Akademisi Hukum",
       bio: "Lahir di Medan, 4 Februari 1973. Dikenal jujur, profesional, dan aktif sebagai Dosen Hukum. Memiliki keahlian mendalam pada hukum pidana dari tingkat kepolisian, kejaksaan, hingga persidangan di pengadilan.",
       expertise: ["Pendampingan Kepolisian & Kejaksaan", "Persidangan Perkara Pidana", "Litigasi Perdata & Konsultasi Hukum"]
     },
     6: {
-      name: "Dr. Ir. Aladin Sirait, S.H., M.H.",
+      name: "7. Dr. Ir. Aladin Sirait, S.H., M.H.",
       role: "Ahli Hukum Perdata Konstruksi",
       credentials: "Doktor & Pakar Konstruksi",
       bio: "Memiliki kepakaran ganda di bidang teknik konstruksi dan hukum perdata konstruksi, berpengalaman mendampingi proyek infrastruktur dan penyelesaian sengketa klaim konstruksi.",
       expertise: ["Hukum Perdata Konstruksi & Infrastruktur", "Sengketa Kontrak Kontraktor/Pengembang", "Arbitrase & Klaim Proyek"]
     },
     7: {
-      name: "Suharno, S.H., M.H., C.Med.",
+      name: "8. Suharno, S.H., M.H., C.Med.",
       role: "Ahli Hukum Perdata & Mediator",
       credentials: "Certified Mediator (C.Med) · Magister Hukum",
       bio: "Mediator bersertifikat yang mengedepankan penyelesaian sengketa perdata melalui jalur negosiasi dan mediasi non-litigasi berorientasi win-win solution.",
       expertise: ["Mediasi & Arbitrase Sengketa", "Hukum Perdata Umum", "Konsultasi Hukum Preventif"]
     },
     8: {
-      name: "Daniel Hutabarat, S.H., M.H.",
+      name: "9. Daniel Hutabarat, S.H., M.H.",
       role: "Ahli Hukum Perdata & Kurator",
       credentials: "Kurator Resmi · Magister Hukum",
       bio: "Pengurus dan Kurator terdaftar yang berpengalaman menangani penundaan kewajiban pembayaran utang (PKPU) dan pengurusan aset kepailitan di Pengadilan Niaga.",
       expertise: ["Hukum Kepailitan & PKPU", "Pengurusan & Pemberesan Aset Kurator", "Restrukturisasi Utang Piutang"]
     },
     9: {
-      name: "Partogi Roni Simanullang, S.H.",
+      name: "10. Partogi Roni Simanullang, S.H.",
       role: "Staff Legal MHS & Rekan",
       credentials: "Lulusan FH Universitas Kristen Indonesia",
       bio: "Lulusan Fakultas Hukum UKI dengan dedikasi tinggi, ketelitian, dan kemampuan analisis hukum yang baik dalam mendukung pelayanan hukum secara profesional dan bertanggung jawab.",
       expertise: ["Analisis Berkas Hukum", "Penyusunan Dokumen Pendampingan", "Riset Legalitas Korporasi"]
     },
     10: {
-      name: "Ruth Devi, S.H.",
+      name: "11. Ruth Devi, S.H.",
       role: "Staff Legal MHS & Rekan",
       credentials: "Lulusan FH Universitas Negeri Semarang (UNNES)",
       bio: "Lulusan Fakultas Hukum UNNES dengan konsentrasi Hukum Perdata. Adaptif, komunikatif, dan memiliki kemampuan analisis hukum yang baik serta siap memberikan kontribusi optimal.",
       expertise: ["Hukum Perdata Umum", "Komunikasi Klien & Administrasi Legal", "Riset Kasus Perdata"]
+    },
+    11: {
+      name: "5. Tiandro Paradise, S.H.",
+      role: "Advocate & Legal Consultant",
+      credentials: "Advokat Hukum Perdata",
+      bio: "Advokat yang berfokus pada penanganan perkara hukum perdata umum, legal drafting perjanjian kerja sama bisnis, serta pendampingan sengketa di Pengadilan Negeri.",
+      expertise: ["Hukum Perdata Umum", "Legal Drafting Kontrak", "Pendampingan Sengketa Perdata"]
     }
   };
 
