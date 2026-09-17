@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+      navbar.style.boxShadow = '0 6px 25px rgba(0, 0, 0, 0.08)';
     } else {
-      navbar.style.boxShadow = 'none';
+      navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.04)';
     }
 
     let current = '';
@@ -114,6 +114,20 @@ document.addEventListener('DOMContentLoaded', () => {
       credentials: "Kurator Resmi · Magister Hukum",
       bio: "Pengurus dan Kurator terdaftar yang berpengalaman menangani penundaan kewajiban pembayaran utang (PKPU) dan pengurusan aset kepailitan di Pengadilan Niaga.",
       expertise: ["Hukum Kepailitan & PKPU", "Pengurusan & Pemberesan Aset Kurator", "Restrukturisasi Utang Piutang"]
+    },
+    9: {
+      name: "Partogi Roni Simanullang, S.H.",
+      role: "Staff Legal MHS & Rekan",
+      credentials: "Lulusan FH Universitas Kristen Indonesia",
+      bio: "Lulusan Fakultas Hukum UKI dengan dedikasi tinggi, ketelitian, dan kemampuan analisis hukum yang baik dalam mendukung pelayanan hukum secara profesional dan bertanggung jawab.",
+      expertise: ["Analisis Berkas Hukum", "Penyusunan Dokumen Pendampingan", "Riset Legalitas Korporasi"]
+    },
+    10: {
+      name: "Ruth Devi, S.H.",
+      role: "Staff Legal MHS & Rekan",
+      credentials: "Lulusan FH Universitas Negeri Semarang (UNNES)",
+      bio: "Lulusan Fakultas Hukum UNNES dengan konsentrasi Hukum Perdata. Adaptif, komunikatif, dan memiliki kemampuan analisis hukum yang baik serta siap memberikan kontribusi optimal.",
+      expertise: ["Hukum Perdata Umum", "Komunikasi Klien & Administrasi Legal", "Riset Kasus Perdata"]
     }
   };
 
